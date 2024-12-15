@@ -8,7 +8,7 @@ Growing up in the 90s, Monster Bash was more than just a game to me - it was my 
 
 ## The Challenge 🚀
 
-For the Codédex Haunted Hackathon, I challenged myself to blend old and new web technologies:
+For the Codédex Holiday Hackathon, I challenged myself to blend old and new web technologies:
 
 - Creating an authentic 90s website aesthetic
 - Implementing a DOS game emulator using js-dos
