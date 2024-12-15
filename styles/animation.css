@@ -1,0 +1,51 @@
+blood-intro {
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--blood);
+    animation: bloodDrip 10s ease-in forwards;
+}
+
+blood-drips {
+    position: absolute;
+    left: 0;
+    bottom: -384px;
+    width: 100%;
+    height: 384px;
+    background-image: url("../assets/images/sprites/blood.webp");
+    background-repeat: repeat-x;
+    animation: bloodSprites 2s steps(14) infinite;
+}
+
+
+@keyframes flyAcrossMoon {
+    from {
+        right: 250px;
+    }
+
+    to {
+        right: -100px;
+    }
+}
+
+@keyframes bloodDrip {
+    0% {
+        top: -100vh;
+    }
+
+    100% {
+        top: calc(100vh + 384px);
+    }
+}
+
+@keyframes bloodSprites {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 -5376px;
+    }
+}

@@ -1,0 +1,12 @@
+# Deny access to text files
+<FilesMatch "^(guestbook\.txt|guestbook\.log)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Additional security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

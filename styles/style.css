@@ -1,0 +1,216 @@
+@font-face {
+    font-family: 'Comix';
+    src: url('../assets/fonts/comix.woff2');
+}
+
+:root {
+    --comix: 'Comix', 'Comic Sans MS', cursive;
+    --font: 'Times New Roman', Times, serif;
+    --box-bgc: #aaa;
+    --box-bgi: url('../assets/images/box.webp') 18 18 18 18 stretch;
+    --box-border: 18px solid transparent;
+    --blood: #bc1b39;
+    --yellow: #ff5;
+    --cyan: #5ff;
+    --green: #5f5;
+}
+
+body {
+    background: url(../assets/images/stars.webp) 100% repeat rgb(107 89 228);
+    background-blend-mode: luminosity;
+    font-family: var(--font);
+    min-height: 100dvh;
+    color: var(--yellow);
+    cursor: url('../assets/images/cur-arrow.png'), auto;
+}
+a:hover, button:hover {
+    cursor: url('../assets/images/cur-over.png'), pointer;
+}
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    place-items: center;
+    gap: 4vw;
+    padding: 4vw;
+    margin-inline: auto;
+}
+
+main>* {
+    transform: translateX(var(--offset-x, 0)) translateY(var(--offset-y, 0)) rotate(var(--rotate, 0deg));
+}
+
+main>*:nth-child(1) { --offset-x: -2vw; --offset-y: 3vh; --rotate: -5deg; }
+main>*:nth-child(2) { --offset-x: 4vw; --offset-y: -2vh; --rotate: 8deg; }
+main>*:nth-child(3) { --offset-x: -3vw; --offset-y: 4vh; --rotate: -12deg; }
+main>*:nth-child(4) { --offset-x: 3vw; --offset-y: -3vh; --rotate: 6deg; }
+main>*:nth-child(5) { --offset-x: -4vw; --offset-y: -4vh; --rotate: -7deg; }
+main>*:nth-child(6) { --offset-x: 2vw; --offset-y: 5vh; --rotate: 10deg; }
+main>*:nth-child(7) { --offset-x: -2vw; --offset-y: -5vh; --rotate: -9deg; }
+main>*:nth-child(8) { --offset-x: 5vw; --offset-y: 2vh; --rotate: 7deg; }
+main>*:nth-child(9) { --offset-x: -5vw; --offset-y: -2vh; --rotate: -11deg; }
+
+main>*:hover {
+    transition: transform 0.3s ease;
+    transform: scale(1.1) rotate(0deg);
+}
+
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+}
+
+*:focus-visible {
+    outline: none; /* Accessibility wasn't a concern in the 90s! */
+}
+
+[alt=moon] {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+center:has(>img) {
+    padding: 148px 1em;
+}
+
+a {
+    color: var(--blood);
+}
+
+h1 {
+    font: 5rem var(--comix);
+}
+
+h2 {
+    font: 2.75rem var(--comix);
+}
+
+
+
+/* Tooltips */
+[data-title] {
+    position: relative;
+}
+
+[data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+
+[data-title]:after {
+    content: attr(data-title);
+    font-family: var(--font);
+    background-color: #ffffcb;
+    color: #111;
+    position: absolute;
+    padding: 1px 5px 2px 5px;
+    bottom: -1.6em;
+    left: 100%;
+    white-space: nowrap;
+    box-shadow: 1px 1px 3px #222222;
+    opacity: 0;
+    border: 1px solid #111111;
+    z-index: 99999;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Table */
+table {
+    /* border-collapse: collapse; */
+    border-width: 0;
+    border-radius: 10px;
+    margin: 2em auto;
+    box-shadow: 0 0 20px 1px var(--blood);
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid var(--green);
+}
+
+th {
+    font: 1.25rem var(--comix);
+    color: var(--green);
+    text-align: right;
+    padding: 5px 10px;
+    width: 100px;
+    border: 1px solid var(--green);
+}
+
+td {
+    padding: 5px 10px;
+    border: 1px solid var(--green);
+}
+
+td img {
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+/* Top row */
+tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+
+tr:first-child td:last-child {
+    border-top-right-radius: 10px;
+}
+
+/* Bottom row */
+tr:last-child th:first-child {
+    border-bottom-left-radius: 10px;
+    vertical-align: top;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+    vertical-align: top;
+}
+
+tr:last-child {
+    height: 5em;
+}
+
+/* Modals */
+dialog:has([close]) {
+    font: 1.25rem var(--comix);
+    color: #333;
+    background-color: var(--box-bgc);
+    border: var(--box-border);
+    border-image: var(--box-bgi);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px 18px 18px;
+    overflow: hidden;
+}
+
+dialog > div {
+    overflow-y: auto;
+    max-height: 50vh;
+}
+dialog [close] {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+dialog::backdrop {
+    background-color: #000a;
+    backdrop-filter:blur(5px);
+}
+
+
+/* Other */
+#gog {
+    width:88px;
+    height:31px;
+    background-image: url('../assets/images/88x31buttonblack.webp');
+}
+
+#gog:hover{
+    background-image: url('../assets/images/88x31button.webp')
+}

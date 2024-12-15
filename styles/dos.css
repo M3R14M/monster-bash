@@ -1,0 +1,33 @@
+/* DOSBox */
+:root {
+    --dos-w: 640px;
+    --dos-h: 400px
+}
+
+#play-modal {
+
+    padding: 48px 48px 48px 0;
+}
+
+#dos {
+    width: calc(var(--dos-w) + 48px);
+    height: var(--dos-h);
+}
+
+
+/* js-dos Overrides*/
+.jsdos-rso {
+    font: 1.25rem var(--comix);
+}
+
+.jsdos-rso select, .jsdos-rso .toggle {
+    border-radius: 0;
+}
+
+[data-theme], .jsdos-rso .sidebar, .bg-base-100 {
+    background: var(--box-bgc)
+}
+
+.jsdos-rso .sidebar .sidebar-button:not(:hover) {
+    color: #000;
+}
